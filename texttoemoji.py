@@ -55,7 +55,7 @@ class TextToEmojiMod(loader.Module):
         reply = await message.get_reply_message()
         args = utils.get_args_raw(message)
         if not reply and not args:
-            return await utils.answer(self.strings("notext"))
+            return await utils.answer(message or reply, self.strings("notext"))
         text = args if not reply else reply.raw_text
         text_emojied = ""
 
